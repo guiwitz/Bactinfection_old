@@ -1,0 +1,20 @@
+name: bactinfection
+channels:
+  - conda-forge
+dependencies:
+  - scipy
+  - numpy
+  - matplotlib
+  - pandas
+  - scikit-image
+  - jupyter
+  - jupyterlab
+  - ipywidgets
+  - voila
+  - nodejs
+  - pip:
+    - napari
+    - scikit-learn
+    - git+https://github.com/guiwitz/Bactinfection.git@master#egg=bactinfection\&subdirectory=bactinfection
+    
+#jupyter labextension install @jupyter-voila/jupyterlab-preview
