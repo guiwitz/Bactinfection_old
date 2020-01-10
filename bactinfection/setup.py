@@ -9,5 +9,5 @@ setup(name='bactinfection',
       license='BSD3',
       packages=['bactinfection'],
       zip_safe=False,
-      install_requires=['oiffile','python-bioformats'],
+      install_requires=[],
       )
