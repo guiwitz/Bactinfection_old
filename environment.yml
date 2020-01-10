@@ -18,4 +18,4 @@ dependencies:
     - oiffile
     - napari
     - scikit-learn
-    - git+https://github.com/guiwitz/Bactinfection.git@master#egg=bactinfection\&subdirectory=bactinfection
+    - git+https://github.com/guiwitz/Bactinfection.git@master#egg=bactinfection&subdirectory=bactinfection
