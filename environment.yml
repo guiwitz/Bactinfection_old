@@ -12,6 +12,7 @@ dependencies:
   - ipywidgets
   - voila
   - nodejs
+  - pip
   - pip:
     - napari
     - scikit-learn
