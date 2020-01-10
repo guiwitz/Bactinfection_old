@@ -19,3 +19,5 @@ dependencies:
     - napari
     - scikit-learn
     - git+https://github.com/guiwitz/Bactinfection.git@master#egg=bactinfection&subdirectory=bactinfection
+#jupyter labextension install @jupyter-widgets/jupyterlab-manager
+#jupyter labextension install @jupyter-voila/jupyterlab-preview

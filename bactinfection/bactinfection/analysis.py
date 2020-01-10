@@ -56,6 +56,12 @@ class Analysis(Bact):
         self.hour_select = ipw.Select(options = [], value = None)
         self.hour_select.observe(self.plot_byhour_callback, names = 'value')
         
+        self.load_analysis_button = ipw.Button(description = 'Load analysis')
+        self.load_analysis_button.on_click(self.load_analysis)
+        
+        self.save_analysis_button = ipw.Button(description = 'Save analysis')
+        self.save_analysis_button.on_click(self.save_analysis)
+        
         self.GM = None
           
     def load_infos(self,b = None):
@@ -178,4 +184,32 @@ class Analysis(Bact):
         ax.legend()
         ax.set_title(self.select_file.value)
         plt.show()
+        
+        
+    def save_analysis(self, b = None):
+        if not os.path.isdir(self.folder_name+'/Analyzed/'):
+            os.makedirs(self.folder_name+'/Analyzed/',exist_ok=True)
+        file_to_save = self.folder_name+'/Analyzed/'+os.path.split(self.folder_name)[-1]+'.pkl'
+        with open(file_to_save, 'wb') as f:
+            to_export = {'bact_channel':self.bact_channel,
+                         'nucl_channel':self.nucl_channel,
+                         'bacteria_channel_intensities':self.bacteria_channel_intensities,
+                         'channels':self.channels, 'all_files':self.all_files,
+                        'result': self.result}
+            pickle.dump(to_export, f)
+            
+            
+    def load_analysis(self, b = None):
+        
+        file_to_load = self.folder_name+'/Analyzed/'+os.path.split(self.folder_name)[-1]+'.pkl'
+        if not os.path.isfile(file_to_load):
+            print('No analysis found')
+        else:
+            with open(file_to_load, 'rb') as f:
+                temp = pickle.load(f)
+
+            for k in temp.keys():
+                setattr(self, k, temp[k])
+            
+            print('Loading Done')
         

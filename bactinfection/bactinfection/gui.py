@@ -47,7 +47,7 @@ class Gui:
         self.analyze_button = ipw.Button(description = 'Run analysis')
         self.analyze_button.on_click(self.run_analysis)
         
-        self.save_button = ipw.Button(description = 'Save analysis')
+        self.save_button = ipw.Button(description = 'Save segmentation')
         self.save_button.on_click(self.save_segmentation)
         
         self.show_button = ipw.Button(description = 'Show segmentation')
